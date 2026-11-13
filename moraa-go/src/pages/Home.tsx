@@ -35,7 +35,7 @@ function Hero() {
   return (
     <section className="hero on-dark" ref={ref} aria-labelledby="hero-t">
       <div className="hero__scene" aria-hidden="true">
-        <img className="hero__photo" src="/img/hero-900.webp" srcSet="/img/hero-900.webp 900w, /img/hero-1600.webp 1600w, /img/hero-2400.webp 2400w" sizes="100vw" alt="" fetchPriority="high" decoding="async" />
+        <img className="hero__photo" src="/img/hero-900.webp" srcSet="/img/hero-900.webp 900w, /img/hero-1600.webp 1600w" sizes="100vw" alt="" fetchPriority="high" decoding="async" />
         <div className="hero__grade" />
         <div className="hero__glow" />
         <img className="hero__leaf hero__leaf--a" src="/img/folha-c.webp" alt="" />

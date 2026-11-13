@@ -33,12 +33,12 @@ try {
   const shot = async (page, name, { full = true, fold = true } = {}) => {
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(500);
-    if (fold) await page.screenshot({ path: `${OUT}/${name}-dobra.png` });
+    if (fold) await page.screenshot({ path: `${OUT}/${name}-dobra.jpg`, type: 'jpeg', quality: 86 });
     if (full) {
       // rola a página para disparar o carregamento das imagens lazy antes da captura inteira
       await page.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 600) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 80)); } scrollTo(0, 0); });
       await page.waitForTimeout(500);
-      await page.screenshot({ path: `${OUT}/${name}-inteira.png`, fullPage: true });
+      await page.screenshot({ path: `${OUT}/${name}-inteira.jpg`, fullPage: true, type: 'jpeg', quality: 80 });
     }
     console.log('✓', name);
   };
@@ -64,7 +64,7 @@ try {
     if (want('home')) { await page.goto(BASE + '/'); await page.waitForSelector('.card'); await shot(page, `home-${k}`); }
     if (want('busca')) {
       await page.goto(BASE + '/imoveis?city=senador-canedo&features=garagem'); await page.waitForSelector('.card'); await shot(page, `busca-${k}`, { fold: false });
-      if (k === 'm360') { await page.click('.toolbar__filter'); await page.waitForSelector('.sheet__panel'); await page.waitForTimeout(400); await page.screenshot({ path: `${OUT}/busca-filtros-${k}.png` }); console.log('✓ filtros'); }
+      if (k === 'm360') { await page.click('.toolbar__filter'); await page.waitForSelector('.sheet__panel'); await page.waitForTimeout(400); await page.screenshot({ path: `${OUT}/busca-filtros-${k}.jpg`, type: 'jpeg', quality: 86 }); console.log('✓ filtros'); }
       if (k === 'm390') { await page.goto(BASE + '/imoveis?city=trindade&maxPrice=800'); await page.waitForSelector('.state'); await shot(page, `busca-vazia-${k}`, { full: false }); }
     }
     if (want('detalhe')) { await page.goto(`${BASE}/imovel/${first.slug}`); await page.waitForSelector('.gal'); await shot(page, `detalhe-${k}`, { fold: k !== 't768' }); }
@@ -77,7 +77,7 @@ try {
       const c2 = await ctxFor(k, advState); const p2 = await c2.newPage();
       if (want('form')) {
         await p2.goto(BASE + '/anunciar'); await p2.waitForSelector('.pform'); await shot(p2, `formulario-${k}`, { fold: false });
-        if (k === 'm360') { await p2.click('.pform__end .btn'); await p2.waitForSelector('.err'); await p2.evaluate(() => scrollTo(0, 0)); await p2.waitForTimeout(500); await p2.screenshot({ path: `${OUT}/formulario-validacao-${k}.png`, fullPage: true }); console.log('✓ validação'); }
+        if (k === 'm360') { await p2.click('.pform__end .btn'); await p2.waitForSelector('.err'); await p2.evaluate(() => scrollTo(0, 0)); await p2.waitForTimeout(500); await p2.screenshot({ path: `${OUT}/formulario-validacao-${k}.jpg`, fullPage: true, type: 'jpeg', quality: 80 }); console.log('✓ validação'); }
       }
       if (want('conta') && (k === 'm360' || k === 'd1440')) { await p2.goto(BASE + '/minha-conta'); await p2.waitForSelector('.orow'); await shot(p2, `anunciante-${k}`, { fold: false }); }
       await c2.close();

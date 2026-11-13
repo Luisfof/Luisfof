@@ -43,8 +43,7 @@ for (const [key, id] of Object.entries(demo)) {
   const src = await get(editorial.hero, 3200);
   // leve gradação: mais contraste e azul nas sombras para casar com a paleta "noite de cerrado"
   const graded = sharp(src).modulate({ saturation: 1.12, brightness: 0.96 }).linear(1.08, -8);
-  await graded.clone().resize(2400).webp({ quality: 72 }).toFile('public/img/hero-2400.webp');
-  await graded.clone().resize(1600).webp({ quality: 78 }).toFile('public/img/hero-1600.webp');
+  await graded.clone().resize(1600).webp({ quality: 66 }).toFile('public/img/hero-1600.webp');
   await graded.clone().resize(900).webp({ quality: 74 }).toFile('public/img/hero-900.webp');
   await graded.clone().resize(1200, 630, { fit: 'cover', position: 'bottom' }).jpeg({ quality: 82 }).toFile('public/img/og.jpg');
   for (const k of ['vidro-ambar', 'torres']) {
