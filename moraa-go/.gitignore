@@ -11,3 +11,4 @@ android/*.apk
 android/*.apk.idsig
 android/demo.keystore
 android/res/mipmap-*/ic_launcher.png
+*.apk
