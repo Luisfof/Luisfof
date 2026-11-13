@@ -1,0 +1,9 @@
+node_modules
+dist
+data/*.sqlite*
+data/uploads
+.env
+test-results
+playwright-report
+*.log
+.cache-img

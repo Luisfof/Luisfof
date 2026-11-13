@@ -1,0 +1,58 @@
+/* MORAA GO — design tokens. Universo "Entardecer no Cerrado":
+   noite azul-profunda, luz de ipê-amarelo, brasa de terra vermelha, cal quente. */
+:root {
+  /* Cor */
+  --noite-900: #070c17;
+  --noite-800: #0b1220;
+  --noite-700: #121b2e;
+  --noite-600: #1b2742;
+  --noite-500: #2b3a5c;
+  --ipe-500: #ffc21a; /* acento principal / CTA */
+  --ipe-600: #f0ad00;
+  --ipe-200: #ffe7a1;
+  --brasa-500: #f2542d; /* acento quente secundário */
+  --brasa-600: #d8411c;
+  --brasa-700: #b23312; /* texto sobre claro (AA) */
+  --cal-50: #fbf8f2;
+  --cal-100: #f6f1e7;
+  --cal-200: #ece4d4;
+  --cal-300: #d9cfba;
+  --pedra-500: #6a6f7c; /* texto secundário sobre claro (AA em cal-100) */
+  --pedra-400: #8a90a0;
+  --pedra-300: #aab0c0; /* texto secundário sobre noite */
+  --buriti-500: #1f7a5a;
+  --buriti-100: #d8efe5;
+  --alerta-100: #ffe1d8;
+
+  --bg: var(--cal-100);
+  --surface: var(--cal-50);
+  --text: var(--noite-800);
+  --text-soft: #4d5364;
+  --line: rgba(11, 18, 32, 0.14);
+  --line-strong: rgba(11, 18, 32, 0.85);
+
+  /* Tipografia — Archivo variável (eixos wght + wdth) */
+  --font: 'Archivo Variable', 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --display: 800 clamp(2.9rem, 13.6vw, 7.5rem) / 0.86 var(--font);
+  --h1: 800 clamp(2.1rem, 8.4vw, 4.2rem) / 0.94 var(--font);
+  --h2: 800 clamp(1.7rem, 6.2vw, 3rem) / 0.98 var(--font);
+  --h3: 700 clamp(1.15rem, 3.4vw, 1.4rem) / 1.15 var(--font);
+  --body: 400 1rem / 1.55 var(--font);
+  --small: 400 0.875rem / 1.45 var(--font);
+  --label: 700 0.72rem / 1.1 var(--font);
+  --wdth-display: 68; /* condensado para títulos de impacto */
+  --wdth-wide: 118; /* expandido para rótulos e marca */
+
+  /* Espaço, forma, sombra */
+  --gutter: clamp(1rem, 4.4vw, 2.5rem);
+  --maxw: 1240px;
+  --r-sm: 3px;
+  --r-md: 6px;
+  --r-pill: 999px;
+  --shadow-1: 0 1px 0 rgba(11, 18, 32, 0.08), 0 8px 24px -12px rgba(11, 18, 32, 0.28);
+  --shadow-2: 0 24px 60px -24px rgba(7, 12, 23, 0.55);
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --header-h: 60px;
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+}
