@@ -13,7 +13,7 @@ cp "$HERE/../public/icons/maskable-192.png" "$HERE/res/mipmap-xxhdpi/ic_launcher
 mkdir -p "$W/src/br/com/moraago/app" "$W/classes" "$W/dex"
 sed "s#__BASE_URL__#$URL#" "$HERE/src/br/com/moraago/app/MainActivity.java" > "$W/src/br/com/moraago/app/MainActivity.java"
 "$BT/aapt2" compile --dir "$HERE/res" -o "$W/res.zip"
-"$BT/aapt2" link -o "$W/base.apk" -I "$JAR" --manifest "$HERE/AndroidManifest.xml" "$W/res.zip"
+"$BT/aapt2" link --min-sdk-version 24 --target-sdk-version 34 --version-code 1 --version-name 1.0-demo -o "$W/base.apk" -I "$JAR" --manifest "$HERE/AndroidManifest.xml" "$W/res.zip"
 javac -nowarn -source 11 -target 11 -classpath "$JAR" -d "$W/classes" "$W/src/br/com/moraago/app/MainActivity.java" 2>/dev/null
 "$BT/d8" --min-api 24 --lib "$JAR" --output "$W/dex" $(find "$W/classes" -name '*.class')
 (cd "$W/dex" && zip -q "$W/base.apk" classes.dex)
