@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="noite">#0B1220</color>
+  <style name="App" parent="android:Theme.Material.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash</item>
+    <item name="android:statusBarColor">@color/noite</item>
+    <item name="android:navigationBarColor">@color/noite</item>
+    <item name="android:colorAccent">#FFC21A</item>
+  </style>
+</resources>
